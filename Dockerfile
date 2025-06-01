@@ -1,10 +1,11 @@
+# Use official n8n image
 FROM n8nio/n8n
 
-ENV N8N_BASIC_AUTH_ACTIVE=true
-ENV N8N_BASIC_AUTH_USER=$N8N_BASIC_AUTH_USER
-ENV N8N_BASIC_AUTH_PASSWORD=$N8N_BASIC_AUTH_PASSWORD
-ENV WEBHOOK_TUNNEL_URL=$WEBHOOK_TUNNEL_URL
+# Optional: Set timezone
+ENV TZ=Asia/Kolkata
 
-EXPOSE 5678
+# Set default user (Render runs as root by default)
+USER root
 
+# Start n8n automatically
 CMD ["n8n"]
